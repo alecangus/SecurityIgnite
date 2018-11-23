@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script>
+        function preview() {
+            // document.getElementById("preview").innerHTML = document.getElementsByName("message")[0].value;
+            window.open('preview?message='+document.getElementsByName("message")[0].value,'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400, height=400');
+        }
+    </script>
+</head>
+<body>
+    <h1>XSS Priviledge Escalation</h1>
+    <p><span th:text="${message}"></span></p>
+    <form method="POST" action="/">
+        <!-- TODO: Upgrade from cookie-only session management... -->
+        <!-- TODO: Implement input validation here and output encoding on the admin mail page -->
+        <textarea placeholder="Please...?" name="message"></textarea>
+        <div class="buttons">
+            <button type="button" onclick="preview()">Preview Message</button>
+            <button type="submit">Submit</button>
+        </div>
+        <div id="preview"></div>
+    </form>
+</body>
+</html>
